@@ -1,0 +1,34 @@
+<div *ngIf="showPersona">
+
+    <h1> Formulario de Persona</h1>
+
+    <form [formGroup]="personaForm" (ngSubmit)=submit()>
+    <div class="personaDatos">
+        <label>Nombre
+        <input type="text" formControlName="nombre">
+        </label>
+        <label>Apellido
+            <input type="text" formControlName="apellido">
+        </label>
+        <br>
+        <label>Edad
+            <input type="number" formControlName="edad">
+        </label>
+        <label>Dirección
+            <input type="text" formControlName="direccion">
+        </label>
+
+    </div>
+
+    Status Formulario: {{personaForm.status}}
+ 
+    <button >Guardar</button>
+
+</form>
+
+</div>
+
+<div *ngIf="showConsultar">
+    <!-- <app-consultar-persona [consultar]="persona"></app-consultar-persona> -->
+    <app-consultar-persona></app-consultar-persona>
+</div>

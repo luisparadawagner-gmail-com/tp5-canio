@@ -1,0 +1,5 @@
+[
+    { "nombre": "Graciela", "apellido": "Flores", "edad": 50, "direccion":"Citrus" },
+    { "nombre": "Daira", "apellido": "Canio", "edad": 19, "direccion":"En algún lugar" },
+    { "nombre": "Fiona", "apellido": "Algo", "edad": 30, "direccion": "Muy muy lejano"}
+]

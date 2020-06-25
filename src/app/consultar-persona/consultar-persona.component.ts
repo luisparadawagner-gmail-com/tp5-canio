@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from './../clases/Persona';
+import { ConsultarPService } from './../servicios/consultar-persona.service';
+import { MatTable } from '@angular/material/table';
 
 @Component({
   selector: 'app-consultar-persona',
@@ -9,24 +11,27 @@ import { User } from './../clases/Persona';
 })
 export class ConsultarPersonaComponent implements OnInit {
 
-  constructor(private router: Router) {}
+    displayedColumns: string [] = [ 'nombre' , 'apellido' , 'edad' , 'direccion', 'modificar'];    
+    dataSource : any[] = [];
 
+    @ViewChild(MatTable) tabla1: MatTable<User>;
 
-  datos: User[] = [
-    { nombre: 'House of Furies', apellido: 'VYRA', edad:8, direccion:'bla 87' }
-  ];
+    constructor(private router: Router, private consultarPService: ConsultarPService) {}
+    
+    ngOnInit() {
+      this.getPersonas();
+    }
 
-  dataSource = this.datos;
-  displayedColumns: string [] = [ 'nombre' , 'apellido' , 'edad' , 'direccion', 'modificar'];    
+    editar(user) {	
+      debugger;	
+      this.router.navigate(["/crear-persona", user]);
+    }
 
-  
-  goToCrear(user) {		
-    this.router.navigate(["/crear-persona", user]);
-
-  }
-
-  ngOnInit() {
-   
-  }
+    getPersonas(){
+      this.consultarPService.getPersonas().subscribe((personas)=>{
+        debugger;
+        this.dataSource = personas;
+      });
+    }
 
 }

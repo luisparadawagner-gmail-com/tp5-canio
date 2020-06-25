@@ -8,6 +8,8 @@ const routes: Routes = [
 
   { path: 'crear-persona', component: CrearPersonaComponent },
   { path: 'consultar-persona', component: ConsultarPersonaComponent },
+
+  { path: '', redirectTo: 'consultar-persona', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -10,8 +10,12 @@ import {MatMenuModule} from '@angular/material/menu';
 
 import {MatButtonModule} from '@angular/material/button';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+
 import { CrearPersonaComponent } from './crear-persona/crear-persona.component';
 import { ConsultarPersonaComponent } from './consultar-persona/consultar-persona.component';
+import { ConsultarPService } from './servicios/consultar-persona.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -25,11 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatTableModule,
     MatMenuModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  // providers: [],
+  providers: [ConsultarPService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

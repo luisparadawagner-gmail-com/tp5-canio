@@ -19,6 +19,7 @@ export class ConsultarPersonaComponent implements OnInit {
     constructor(private router: Router, private consultarPService: ConsultarPService) {}
     
     ngOnInit() {
+      // No vienen los datos del componente CrearPersona, por o que vuelve a cargar lo que tiene el .json
       this.getPersonas();
     }
 

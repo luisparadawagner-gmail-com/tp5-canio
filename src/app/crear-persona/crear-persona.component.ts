@@ -32,6 +32,7 @@ export class CrearPersonaComponent implements OnInit {
   
   nombreControl = new FormControl('User');
 
+  // No se valida si el objeto modificado viene vacío. Si viene vacío tira error porque no encuentra las propiedades.
   initForm(modificado : User){   
     this.personaForm = this.fb.group({
         nombre : [modificado.nombre, Validators.required],
